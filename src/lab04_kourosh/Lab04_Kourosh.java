@@ -5,7 +5,9 @@
 package lab04_kourosh;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -92,9 +94,30 @@ public class Lab04_Kourosh extends Application{
            centerGrid.add(textFields[i], 0, i * 2 + 1);
         }
         
+        //buttons and message Labels
+        Button calculate = new Button("calculate");
+        Button clear = new Button("clear");
+        Label expensesIncurred = new Label();
+        Label expensesAllowed = new Label();
+        Label excessPaid = new Label();
+        Label amountSaved = new Label();
         
+        //adding buttons and message labels to bottom grid
+        bottomGrid.add(calculate, 0, 0);
+        bottomGrid.add(clear, 1, 0);
+        bottomGrid.add(expensesIncurred, 0, 1);
+        bottomGrid.add(excessPaid, 0, 2);
+        bottomGrid.add(amountSaved, 0, 3);
+        
+        
+        
+        centerGrid.setAlignment(Pos.CENTER);
+        bottomGrid.setAlignment(Pos.CENTER);
+        
+        bottomGrid.setHgap(5);
         
         root.setCenter(centerGrid);
+        root.setBottom(bottomGrid);
         root.setPadding(new Insets(25, 25, 25, 25));
         
         Scene scene = new Scene(root, 500, 500);
