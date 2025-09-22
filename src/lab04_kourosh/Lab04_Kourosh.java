@@ -62,7 +62,7 @@ public class Lab04_Kourosh extends Application {
         double allowed = mealCost + parkingCost + TaxiCost + lodgingCost + mileageCost;
         
         //calculating total incurred cost
-        double incurred = airfare + rentalFees + (milesDriven * Per_Mile_Driven) + parkingFees + taxiFees + registration + (lodging * numberOfDays);
+        double incurred = airfare + rentalFees + (milesDriven * Per_Mile_Driven) + parkingFees + taxiFees + registration + (lodging * numberOfDays) + mealCost;
         
         return new double[]{incurred, allowed};
     }
@@ -78,7 +78,7 @@ public class Lab04_Kourosh extends Application {
         alert.setContentText(errorMessage);
         alert.showAndWait();
     }
-
+    
     @Override
     public void start(Stage stage) {
         //initializing GridPanes and BorderPane
@@ -204,7 +204,21 @@ public class Lab04_Kourosh extends Application {
                 showAlert("please enter a number valuew");
             }
         });
-
+        
+        //clear button event
+        clear.setOnAction(e -> {
+            for (TextField field : textFields) {
+                field.clear();
+            }
+            
+            calculate.setDisable(true);
+            expensesIncurred.setText("");
+            expensesAllowed.setText("");
+            excessPaid.setText("");
+            amountSaved.setText("");
+        });
+        
+        //setting node positions
         centerGrid.setAlignment(Pos.CENTER);
         bottomGrid.setAlignment(Pos.CENTER);
 
@@ -213,8 +227,10 @@ public class Lab04_Kourosh extends Application {
         root.setCenter(centerGrid);
         root.setBottom(bottomGrid);
         root.setPadding(new Insets(25, 25, 25, 25));
+        root.setId("root");
 
         Scene scene = new Scene(root, 500, 500);
+        scene.getStylesheets().add("file:src/lab04_kourosh/Style.css");
         stage.setScene(scene);
         stage.show();
     }
