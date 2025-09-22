@@ -209,6 +209,7 @@ public class Lab04_Kourosh extends Application {
         clear.setOnAction(e -> {
             for (TextField field : textFields) {
                 field.clear();
+                field.setDisable(false);
             }
             
             calculate.setDisable(true);

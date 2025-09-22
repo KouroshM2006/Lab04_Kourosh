@@ -8,6 +8,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 
 
-.root {
-   -fx-background-color: cyan; 
+/* Set general background and font for root*/
+#root {
+    -fx-background-color: gold;
+    -fx-font-family: 'Segoe UI';
+    -fx-font-size: 14px;
+}
+
+/* Style for Labels */
+.label {
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+/* Style for TextFields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
 }
