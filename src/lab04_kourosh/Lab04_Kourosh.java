@@ -4,6 +4,8 @@
  */
 package lab04_kourosh;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
@@ -49,15 +51,54 @@ public class Lab04_Kourosh extends Application{
     
     @Override
     public void start(Stage stage) {
-        //initializing GridPane and BorderPane
-        GridPane grid = new GridPane();
+        //initializing GridPanes and BorderPane
+        GridPane centerGrid = new GridPane();
+        GridPane bottomGrid = new GridPane();
         BorderPane root = new BorderPane();
         
         //adding nodes to gridpane
         Label nbDays = new Label("Number of days on the trip");
-        TextField nbDays = new TextField();
+        TextField nbDaysField = new TextField();
+        
+        Label airfare = new Label("Amount of airfare, if any");
+        TextField airfareField  = new TextField();
+        
+        Label rental = new Label("Amount of car rental fees, if any");
+        TextField rentalField = new TextField();
+        
+        Label miles = new Label("Number of miles driven, if a private vehicle was used");
+        TextField milesField = new TextField();
+        
+        Label parking = new Label("Amount of parking fees, if any");
+        TextField parkingField = new TextField();
+        
+        Label taxi = new Label("Amount of taxi charges, if any");
+        TextField taxiField = new TextField();
+        
+        Label registration = new Label("Conference or seminar registration fees, if any");
+        TextField registrationField = new TextField();
+        
+        Label lodging = new Label("Lodging charges, per night");
+        TextField lodgingField = new TextField();
+        
+        //arrays of labels and text fields
+        Label[] labels = {nbDays, airfare, rental, miles, parking, taxi, registration, lodging};
+        TextField[] textFields = {nbDaysField, airfareField, rentalField, milesField, parkingField, taxiField, registrationField, lodgingField};
         
         
+        //inserting labels and text fields into grid pane
+        for (int i = 0; i < labels.length; i++) {
+           centerGrid.add(labels[i], 0, i * 2);
+           centerGrid.add(textFields[i], 0, i * 2 + 1);
+        }
+        
+        
+        
+        root.setCenter(centerGrid);
+        root.setPadding(new Insets(25, 25, 25, 25));
+        
+        Scene scene = new Scene(root, 500, 500);
+        stage.setScene(scene);
         stage.show();
     }
     
